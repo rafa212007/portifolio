@@ -23,8 +23,8 @@ export const projectsData = [
     badge: 'IoT & Edge Computing',
     description: 'Sistema completo de monitoramento ambiental para vinícolas com ESP32, sensores DHT e LDR, comunicação via MQTT e plataforma FIWARE hospedada na nuvem Azure.',
     longDescription: 'Desenvolvido com foco em sistemas distribuídos e edge computing. Utiliza ESP32 conectado a sensores de temperatura, umidade e luminosidade, enviando telemetria em tempo real via protocolo MQTT para a arquitetura FIWARE (Orion Context Broker, IoT Agent e STH-Comet) rodando em VM Linux na Azure com Docker Compose. Inclui dashboard dinâmico em Python (Dash/Plotly) com alertas visuais para parâmetros críticos.',
-    image: '/projects/vinharia-edge.jpg',
-    github: 'https://github.com/rafa212007/cp05-Edge.git',
+    image: '/projects/vinharia-edge.svg',
+    github: 'https://github.com/rafa212007/Projeto-fiware.git',
     tags: ['ESP32', 'FIWARE', 'MQTT', 'Docker', 'Azure VM', 'Python', 'Dash/Plotly', 'Linux'],
     highlights: [
       'Arquitetura FIWARE completa na nuvem Azure com Docker Compose',

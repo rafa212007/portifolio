@@ -50,16 +50,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Notification tip for user about how to place photos */}
-        <div className="mb-8 p-3 rounded-xl bg-cyan-950/30 border border-cyan-800/40 flex items-center justify-between text-xs text-slate-300 max-w-3xl mx-auto">
-          <div className="flex items-center gap-2">
-            <Info size={16} className="text-cyan-400 shrink-0" />
-            <span>
-              <strong>Dica de Personalização:</strong> As imagens de cada projeto ficam na pasta <code className="text-cyan-300 font-mono bg-slate-900 px-1 py-0.5 rounded">public/projects/</code>. Você pode substituir pelos seus próprios prints a qualquer momento!
-            </span>
-          </div>
-        </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
