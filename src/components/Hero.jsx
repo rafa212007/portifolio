@@ -124,9 +124,7 @@ export default function Hero() {
                     <img
                       src="/profile.jpg"
                       alt="Rafael Augusto Carmona"
-                      className={`w-full h-full object-cover transition-opacity duration-300 ${
-                        imageLoaded ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
                       onLoad={() => setImageLoaded(true)}
                       onError={() => setImageError(true)}
                     />
