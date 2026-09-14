@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <rect width="800" height="450" fill="#0A0B16"/>
+  <defs>
+    <linearGradient id="gPab" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#180D2B"/>
+      <stop offset="1" stop-color="#080914"/>
+    </linearGradient>
+    <linearGradient id="badgeG" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#gPab)"/>
+
+  <!-- Top bar -->
+  <rect x="30" y="25" width="740" height="40" rx="8" fill="#1E1B4B" opacity="0.6"/>
+  <circle cx="55" cy="45" r="6" fill="#EF4444"/>
+  <circle cx="75" cy="45" r="6" fill="#F59E0B"/>
+  <circle cx="95" cy="45" r="6" fill="#10B981"/>
+  <text x="125" y="50" font-family="'JetBrains Mono', monospace" font-size="13" fill="#F472B6">passa-a-bola // react-tailwind // express-node-fullstack</text>
+
+  <!-- Left: Athlete Profile & AI Evaluation Card -->
+  <rect x="30" y="85" width="340" height="335" rx="16" fill="#111126" stroke="#2E1065"/>
+  
+  <rect x="50" y="105" width="48" height="48" rx="24" fill="url(#badgeG)"/>
+  <text x="74" y="135" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">⚽</text>
+  
+  <text x="110" y="125" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Perfil da Atleta</text>
+  <text x="110" y="145" font-family="Inter, sans-serif" font-size="12" fill="#EC4899">Meio-Campo • Nível 88</text>
+
+  <!-- Skills Bars -->
+  <text x="50" y="185" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">VISAO DE JOGO E PASSE</text>
+  <rect x="50" y="195" width="300" height="8" rx="4" fill="#1E1B4B"/>
+  <rect x="50" y="195" width="270" height="8" rx="4" fill="#EC4899"/>
+
+  <text x="50" y="230" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">VELOCIDADE E DRIBLE</text>
+  <rect x="50" y="240" width="300" height="8" rx="4" fill="#1E1B4B"/>
+  <rect x="50" y="240" width="250" height="8" rx="4" fill="#8B5CF6"/>
+
+  <text x="50" y="275" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">FINALIZACAO</text>
+  <rect x="50" y="285" width="300" height="8" rx="4" fill="#1E1B4B"/>
+  <rect x="50" y="285" width="230" height="8" rx="4" fill="#06B6D4"/>
+
+  <!-- AI Evaluation Badge -->
+  <rect x="50" y="320" width="300" height="75" rx="12" fill="#1E1338" stroke="#6B21A8"/>
+  <text x="65" y="345" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#F472B6">AVALIACAO DE PERFIL (SIMULACAO IA)</text>
+  <text x="65" y="368" font-family="Inter, sans-serif" font-size="12" fill="#E2E8F0">Alta compatibilidade para lideranca tatica.</text>
+  <text x="65" y="385" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#10B981">Indice de Equilibrio Coletivo: 94%</text>
+
+  <!-- Right: Tournament & Balanced Teams Management -->
+  <rect x="390" y="85" width="380" height="160" rx="16" fill="#111126" stroke="#2E1065"/>
+  <text x="410" y="115" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#EC4899">CAMPEONATOS E GESTAO DE EQUIPES</text>
+  <text x="410" y="135" font-family="Inter, sans-serif" font-size="12" fill="#94A3B8">Algoritmo de balanceamento de equipes por posicao e nivel</text>
+
+  <rect x="410" y="155" width="165" height="65" rx="10" fill="#1A1433" stroke="#3B1A66"/>
+  <text x="425" y="180" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#F472B6">Equipe A (Estrelas)</text>
+  <text x="425" y="200" font-family="'JetBrains Mono', monospace" font-size="11" fill="#10B981">Media: 84.5 pts</text>
+
+  <rect x="585" y="155" width="165" height="65" rx="10" fill="#1A1433" stroke="#3B1A66"/>
+  <text x="600" y="180" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#A855F7">Equipe B (Guerreiras)</text>
+  <text x="600" y="200" font-family="'JetBrains Mono', monospace" font-size="11" fill="#10B981">Media: 84.2 pts</text>
+
+  <!-- Right Bottom: Tech & Roles Panel -->
+  <rect x="390" y="260" width="380" height="160" rx="16" fill="#111126" stroke="#2E1065"/>
+  <text x="410" y="290" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#38BDF8">FULL STACK E ARQUITETURA</text>
+  
+  <rect x="410" y="310" width="100" height="28" rx="6" fill="#06B6D4" opacity="0.2"/>
+  <text x="420" y="328" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#38BDF8">React.js</text>
+
+  <rect x="520" y="310" width="110" height="28" rx="6" fill="#10B981" opacity="0.2"/>
+  <text x="530" y="328" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#34D399">Node.js API</text>
+
+  <rect x="640" y="310" width="110" height="28" rx="6" fill="#8B5CF6" opacity="0.2"/>
+  <text x="650" y="328" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#C084FC">Express.js</text>
+
+  <text x="410" y="375" font-family="Inter, sans-serif" font-size="12" fill="#CBD5E1">&#10003; Niveis de acesso para atletas e administradores</text>
+  <text x="410" y="398" font-family="Inter, sans-serif" font-size="12" fill="#CBD5E1">&#10003; Controle de regras etarias (idade min/max)</text>
+</svg>

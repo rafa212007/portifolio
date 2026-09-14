@@ -1,5 +1,22 @@
 export const projectsData = [
   {
+    id: 'passa-a-bola',
+    title: 'Passa a Bola — Plataforma para Futebol Feminino',
+    category: 'web',
+    badge: 'Full Stack & Impacto Social',
+    description: 'Plataforma digital para incentivo e conexão de mulheres no futebol, com gerenciamento de campeonatos, formação equilibrada de equipes e avaliação esportiva simulando inteligência artificial.',
+    longDescription: 'Desenvolvimento full stack de solução inclusiva para conectar atletas, organizadores e equipes de futebol feminino. O sistema conta com cadastro e gerenciamento detalhado de atletas por posições (Goleira, Defesa, Meio-campo e Ataque), controle de campeonatos com regras de idade mínima e máxima, algoritmo para formação equilibrada de equipes e diferentes níveis de acesso para atletas e administradores. Inclui ainda um módulo de avaliação de perfil atlético simulando análises de IA.',
+    image: '/projects/passa-a-bola.svg',
+    github: 'https://github.com/rafa212007',
+    tags: ['React.js', 'JavaScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'REST API', 'Git/GitHub'],
+    highlights: [
+      'Arquitetura Full Stack com React.js, Tailwind CSS e Express.js',
+      'Formação equilibrada de equipes e controle de regras de campeonatos',
+      'Sistema de avaliação de perfil técnico esportivo com simulação de IA',
+      'Níveis de acesso diferenciados para atletas e administradores'
+    ]
+  },
+  {
     id: 'vinharia-edge',
     title: 'Vinharia Agnello — IoT & Edge Computing',
     category: 'iot',
@@ -37,7 +54,7 @@ export const projectsData = [
     category: 'data',
     badge: 'Ciência de Dados',
     description: 'Análise exploratória e inferência estatística sobre 4.324 lançamentos espaciais entre 1957 e 2020 (Kaggle), aplicando testes de hipótese e modelagem com SciPy.',
-    longDescription: 'Estudo aprofundado utilizando dataset histórico de missões espaciais do Kaggle. Tratamento robusto de dados com remoção de valores ausentes e tratamento de outliers. Aplicação de estatística descritiva, intervalos de confiança e testes não-paramétricos de hipótese (Mann-Whitney U e Qui-Quadrado), além do cálculo de tamanho de efeito (Cohen\'s d e V de Cramér) utilizando a stack científica de Python.',
+    longDescription: 'Estudo aprofundado utilizando dataset histórico de missões espaciais do Kaggle. Tratamento robusto de dados com remoção de valores ausentes e tratamento de outliers. Aplicação de estatística descritiva, intervalos de confiança e testes não-paramétricos de hipótese (Mann-Whitney U e Qui-Quadrado), além do cálculo de tamanho de efeito (Cohen d e V de Cramer) utilizando a stack científica de Python.',
     image: '/projects/space-missions.svg',
     github: 'https://github.com/rafa212007',
     tags: ['Python', 'Pandas', 'NumPy', 'SciPy', 'Matplotlib', 'Seaborn', 'Kaggle', 'Estatística'],
