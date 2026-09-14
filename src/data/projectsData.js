@@ -148,7 +148,7 @@ export const projectsData = [
     title: 'ConectaPro – Rede Profissional para Networking',
     category: 'web',
     badge: 'Full Stack & Networking',
-    image: '/projects/conectapro.jpg',
+    image: '/projects/conectapro.svg',
     github: 'https://github.com/Equipe-Dev-fiap/gs-web-front-2.git',
     shortDescription: 'Plataforma web para conexões profissionais com perfis completos, mensagens, busca de talentos e recomendação com React, Node.js e Express.',
     fullDescription: 'Desenvolvimento de uma plataforma web inspirada em redes profissionais, permitindo conexão entre usuários, criação e gerenciamento de perfis profissionais, compartilhamento de informações e interação por mensagens.\n\nImplementação de autenticação de usuários e gerenciamento completo de perfil com foto, experiências, formação, habilidades, idiomas, certificações e projetos no frontend com React, Vite e Tailwind CSS. Backend desenvolvido em Node.js e Express para gerenciamento de usuários, perfis e mensagens, incluindo busca, filtros e recomendação profissional com interface responsiva e suporte nativo a modo escuro.',
