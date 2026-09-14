@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <rect width="800" height="450" fill="#0B1120"/>
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#110C24"/>
+      <stop offset="1" stop-color="#05030E"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g3)"/>
+
+  <!-- Top bar -->
+  <rect x="30" y="25" width="740" height="40" rx="8" fill="#1E293B" opacity="0.6"/>
+  <circle cx="55" cy="45" r="6" fill="#EF4444"/>
+  <circle cx="75" cy="45" r="6" fill="#F59E0B"/>
+  <circle cx="95" cy="45" r="6" fill="#10B981"/>
+  <text x="125" y="50" font-family="'JetBrains Mono', monospace" font-size="13" fill="#C084FC">data-science // kaggle-space-missions // scipy-stats</text>
+
+  <!-- Left: Histogram / Bar chart -->
+  <rect x="30" y="85" width="450" height="335" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="55" y="115" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#C084FC">DISTRIBUIÇÃO DE LANÇAMENTOS POR DÉCADA (4.324 MISSÕES)</text>
+
+  <!-- Bars -->
+  <rect x="65" y="280" width="40" height="100" rx="4" fill="#6366F1"/>
+  <text x="65" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">1960s</text>
+
+  <rect x="125" y="220" width="40" height="160" rx="4" fill="#818CF8"/>
+  <text x="125" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">1970s</text>
+
+  <rect x="185" y="240" width="40" height="140" rx="4" fill="#A855F7"/>
+  <text x="185" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">1980s</text>
+
+  <rect x="245" y="270" width="40" height="110" rx="4" fill="#C084FC"/>
+  <text x="245" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">1990s</text>
+
+  <rect x="305" y="290" width="40" height="90" rx="4" fill="#EC4899"/>
+  <text x="305" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">2000s</text>
+
+  <rect x="365" y="160" width="40" height="220" rx="4" fill="#06B6D4"/>
+  <text x="365" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">2010s</text>
+
+  <rect x="425" y="190" width="40" height="190" rx="4" fill="#10B981"/>
+  <text x="425" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">2020</text>
+
+  <!-- Right: Stats Panel -->
+  <rect x="500" y="85" width="270" height="160" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="520" y="115" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#38BDF8">TESTE MANN-WHITNEY U</text>
+  <text x="520" y="150" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#FFFFFF">p &lt; 0.001</text>
+  <text x="520" y="180" font-family="Inter, sans-serif" font-size="12" fill="#94A3B8">Estatisticamente significativo</text>
+  <text x="520" y="210" font-family="'JetBrains Mono', monospace" font-size="11" fill="#10B981">Cohen's d: 0.74 (Moderado)</text>
+
+  <rect x="500" y="260" width="270" height="160" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="520" y="290" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#F472B6">TESTE QUI-QUADRADO</text>
+  <text x="520" y="325" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#FFFFFF">χ² = 84.12</text>
+  <text x="520" y="355" font-family="Inter, sans-serif" font-size="12" fill="#94A3B8">Graus de liberdade (df): 4</text>
+  <text x="520" y="385" font-family="'JetBrains Mono', monospace" font-size="11" fill="#A855F7">V de Cramér: 0.38</text>
+</svg>

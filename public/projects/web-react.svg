@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <rect width="800" height="450" fill="#0B1120"/>
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081426"/>
+      <stop offset="1" stop-color="#030816"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g4)"/>
+
+  <!-- Top bar -->
+  <rect x="30" y="25" width="740" height="40" rx="8" fill="#1E293B" opacity="0.6"/>
+  <circle cx="55" cy="45" r="6" fill="#EF4444"/>
+  <circle cx="75" cy="45" r="6" fill="#F59E0B"/>
+  <circle cx="95" cy="45" r="6" fill="#10B981"/>
+  <text x="125" y="50" font-family="'JetBrains Mono', monospace" font-size="13" fill="#38BDF8">react-vite // tailwind-css // modern-responsive-ui</text>
+
+  <!-- Web layout mockup -->
+  <rect x="30" y="85" width="160" height="335" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <!-- Sidebar items -->
+  <rect x="45" y="115" width="130" height="24" rx="6" fill="#06B6D4" opacity="0.2"/>
+  <text x="60" y="131" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#38BDF8">Dashboard</text>
+  <rect x="45" y="150" width="130" height="24" rx="6" fill="#1E293B" opacity="0.4"/>
+  <text x="60" y="166" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">Componentes</text>
+  <rect x="45" y="185" width="130" height="24" rx="6" fill="#1E293B" opacity="0.4"/>
+  <text x="60" y="201" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">Analytics</text>
+  <rect x="45" y="220" width="130" height="24" rx="6" fill="#1E293B" opacity="0.4"/>
+  <text x="60" y="236" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">Configurações</text>
+
+  <!-- Main Content Area -->
+  <rect x="210" y="85" width="560" height="110" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="235" y="125" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Single Page Applications Modernas & Fluidas</text>
+  <text x="235" y="155" font-family="Inter, sans-serif" font-size="12" fill="#94A3B8">Desenvolvidas com React 18, Vite HMR, estilização utilitária Tailwind e semântica acessível.</text>
+
+  <rect x="210" y="215" width="265" height="205" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="230" y="245" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#10B981">PERFORMANCE AUDIT</text>
+  <circle cx="340" cy="325" r="45" fill="none" stroke="#10B981" stroke-width="8"/>
+  <text x="340" y="333" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#10B981" text-anchor="middle">100</text>
+  <text x="340" y="395" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Google Lighthouse Score</text>
+
+  <rect x="495" y="215" width="275" height="205" rx="14" fill="#0F172A" stroke="#1E293B"/>
+  <text x="515" y="245" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#06B6D4">RESPONSIVIDADE TOTAL</text>
+  <text x="515" y="280" font-family="Inter, sans-serif" font-size="12" fill="#E2E8F0">Breakpoints otimizados:</text>
+  <text x="515" y="310" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">✓ Mobile (&lt;640px)</text>
+  <text x="515" y="335" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">✓ Tablet (640px - 1024px)</text>
+  <text x="515" y="360" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94A3B8">✓ Desktop (&gt;1024px)</text>
+</svg>
