@@ -29,15 +29,18 @@ export default function Navbar({ isDark, setIsDark }) {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-500 p-[1.5px] transition-transform group-hover:scale-105">
-            <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-              <span className="font-mono text-cyan-400 font-bold text-lg">&lt;RC/&gt;</span>
-            </div>
+        {/* Logo com Foto de Perfil em Bolinha */}
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 rounded-full p-[1.5px] bg-gradient-to-tr from-cyan-400 via-teal-400 to-emerald-400 transition-transform group-hover:scale-105 shadow-md shadow-cyan-500/25">
+            <img
+              src="/profile.jpg"
+              alt="Rafael Carmona"
+              className="w-full h-full object-cover object-[center_20%] rounded-full"
+            />
+            <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950 shadow-sm" title="Disponível"></span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-white tracking-tight text-base group-hover:text-cyan-400 transition-colors">
+            <span className="font-bold text-white tracking-tight text-base group-hover:text-cyan-400 transition-colors flex items-center gap-1.5">
               Rafael Carmona
             </span>
             <span className="text-[11px] text-cyan-400/90 font-mono tracking-wider uppercase">Engenharia de Software</span>
