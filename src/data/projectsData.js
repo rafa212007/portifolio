@@ -1,67 +1,146 @@
 export const projectsData = [
   {
     id: 'passa-a-bola',
-    title: 'Passa a Bola — Plataforma para Futebol Feminino',
+    title: 'Passa a Bola – Plataforma para Futebol Feminino',
     category: 'web',
     badge: 'Full Stack & Impacto Social',
-    description: 'Plataforma digital para incentivo e conexão de mulheres no futebol, com gerenciamento de campeonatos, formação equilibrada de equipes e avaliação esportiva simulando inteligência artificial.',
-    longDescription: 'Desenvolvimento full stack de solução inclusiva para conectar atletas, organizadores e equipes de futebol feminino. O sistema conta com cadastro e gerenciamento detalhado de atletas por posições (Goleira, Defesa, Meio-campo e Ataque), controle de campeonatos com regras de idade mínima e máxima, algoritmo para formação equilibrada de equipes e diferentes níveis de acesso para atletas e administradores. Inclui ainda um módulo de avaliação de perfil atlético simulando análises de IA.',
     image: '/projects/passa-a-bola.jpg',
     github: 'https://github.com/rafa212007',
-    tags: ['React.js', 'JavaScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'REST API', 'Git/GitHub'],
-    highlights: [
-      'Arquitetura Full Stack com React.js, Tailwind CSS e Express.js',
-      'Formação equilibrada de equipes e controle de regras de campeonatos',
-      'Sistema de avaliação de perfil técnico esportivo com simulação de IA',
-      'Níveis de acesso diferenciados para atletas e administradores'
+    shortDescription: 'Plataforma web para incentivar a participação feminina no futebol por meio da organização digital de atletas, equipes e campeonatos.',
+    fullDescription: 'O Passa a Bola é uma plataforma web desenvolvida para incentivar a participação feminina no futebol por meio da organização digital de atletas, equipes e campeonatos. O sistema foi criado para facilitar o cadastro de jogadoras, o gerenciamento de competições e a formação equilibrada de times, promovendo uma experiência mais organizada para atletas e administradores.\n\nA aplicação possui diferentes níveis de acesso, permitindo que administradores gerenciem campeonatos e atletas, enquanto as jogadoras podem manter seus perfis atualizados com informações esportivas. O projeto também inclui funcionalidades de avaliação de perfil e distribuição balanceada de atletas entre equipes, considerando características e posições em campo.',
+    features: [
+      'Cadastro e gerenciamento de atletas.',
+      'Controle de campeonatos e equipes.',
+      'Sistema de perfis esportivos.',
+      'Formação equilibrada de times.',
+      'Controle de permissões para administradores e atletas.',
+      'Interface responsiva para desktop e dispositivos móveis.'
+    ],
+    technologies: [
+      'React',
+      'Vite',
+      'JavaScript',
+      'Tailwind CSS',
+      'Node.js',
+      'Express',
+      'Git e GitHub'
+    ],
+    learnings: [
+      'Desenvolvimento Full Stack.',
+      'Organização de componentes React.',
+      'Consumo e integração de APIs.',
+      'Estruturação de aplicações escaláveis.',
+      'Trabalho colaborativo utilizando Git.'
     ]
   },
   {
     id: 'vinharia-edge',
-    title: 'Vinharia Agnello — IoT & Edge Computing',
+    title: 'Vinheria Agnello – Monitoramento Inteligente com IoT e Edge Computing',
     category: 'iot',
     badge: 'IoT & Edge Computing',
-    description: 'Sistema completo de monitoramento ambiental para vinícolas com ESP32, sensores DHT e LDR, comunicação via MQTT e plataforma FIWARE hospedada na nuvem Azure.',
-    longDescription: 'Desenvolvido com foco em sistemas distribuídos e edge computing. Utiliza ESP32 conectado a sensores de temperatura, umidade e luminosidade, enviando telemetria em tempo real via protocolo MQTT para a arquitetura FIWARE (Orion Context Broker, IoT Agent e STH-Comet) rodando em VM Linux na Azure com Docker Compose. Inclui dashboard dinâmico em Python (Dash/Plotly) com alertas visuais para parâmetros críticos.',
     image: '/projects/vinharia-edge.svg',
     github: 'https://github.com/rafa212007/Projeto-fiware.git',
-    tags: ['ESP32', 'FIWARE', 'MQTT', 'Docker', 'Azure VM', 'Python', 'Dash/Plotly', 'Linux'],
-    highlights: [
-      'Arquitetura FIWARE completa na nuvem Azure com Docker Compose',
-      'Comunicação leve e resiliente com protocolo MQTT e ESP32',
-      'Dashboard analítico em Python com alertas de limites críticos'
-    ]
-  },
-  {
-    id: 'finance-app',
-    title: 'Controle Financeiro Pessoal — Full Stack Web',
-    category: 'web',
-    badge: 'Full Stack & Database',
-    description: 'Aplicação web completa de gestão financeira com Python, Flask e banco relacional Oracle via SQLAlchemy, autenticação segura e relatórios gráficos interativos.',
-    longDescription: 'Sistema completo de controle de finanças pessoais. Modelagem relacional e normalização de dados em Oracle Database. Implementação de autenticação com Flask-Login e criptografia de senhas com hash para isolamento seguro por usuário. CRUD completo de despesas e receitas, filtros inteligentes por período e relatórios analíticos com gráficos interativos via Chart.js.',
-    image: '/projects/finance-app.jpg',
-    github: 'https://github.com/rafa212007',
-    tags: ['Python', 'Flask', 'Oracle Database', 'SQLAlchemy', 'Flask-Login', 'Chart.js', 'SQL'],
-    highlights: [
-      'Modelagem e normalização de dados com Oracle DB & SQLAlchemy ORM',
-      'Autenticação segura com criptografia de senha e isolamento de sessão',
-      'Relatórios visuais e gráficos comparativos com Chart.js'
+    shortDescription: 'Sistema de monitoramento ambiental em tempo real com ESP32, sensores ambientais, protocolo MQTT e plataforma FIWARE.',
+    fullDescription: 'Projeto desenvolvido para monitoramento ambiental de uma vinheria utilizando conceitos de Internet das Coisas (IoT) e Edge Computing. O sistema coleta dados em tempo real por meio de sensores conectados a um ESP32, processa as informações e envia os dados para a plataforma FIWARE utilizando o protocolo MQTT.\n\nOs dados coletados são armazenados e posteriormente exibidos em um dashboard interativo, permitindo acompanhar indicadores ambientais críticos para a conservação adequada dos vinhos.',
+    features: [
+      'Coleta de temperatura, luminosidade e umidade.',
+      'Comunicação MQTT entre dispositivos e plataforma.',
+      'Integração com FIWARE Orion Context Broker.',
+      'Armazenamento histórico utilizando STH-Comet.',
+      'Dashboard interativo em Python.',
+      'Alertas para condições ambientais inadequadas.'
+    ],
+    technologies: [
+      'ESP32',
+      'Wokwi',
+      'MQTT',
+      'FIWARE',
+      'Orion Context Broker',
+      'IoT Agent',
+      'STH-Comet',
+      'Docker',
+      'Azure',
+      'Python',
+      'Dash',
+      'Plotly'
+    ],
+    learnings: [
+      'Arquiteturas Edge Computing.',
+      'Comunicação entre dispositivos IoT.',
+      'Containers Docker.',
+      'Hospedagem em nuvem.',
+      'Visualização de dados em tempo real.'
     ]
   },
   {
     id: 'space-missions',
-    title: 'Data Science — Estatística de Missões Espaciais',
+    title: 'Space Missions Analytics – Análise Estatística de Missões Espaciais',
     category: 'data',
-    badge: 'Ciência de Dados',
-    description: 'Análise exploratória e inferência estatística sobre 4.324 lançamentos espaciais entre 1957 e 2020 (Kaggle), aplicando testes de hipótese e modelagem com SciPy.',
-    longDescription: 'Estudo aprofundado utilizando dataset histórico de missões espaciais do Kaggle. Tratamento robusto de dados com remoção de valores ausentes e tratamento de outliers. Aplicação de estatística descritiva, intervalos de confiança e testes não-paramétricos de hipótese (Mann-Whitney U e Qui-Quadrado), além do cálculo de tamanho de efeito (Cohen d e V de Cramer) utilizando a stack científica de Python.',
+    badge: 'Ciência de Dados & Estatística',
     image: '/projects/space-missions.jpg',
     github: 'https://github.com/rafa212007',
-    tags: ['Python', 'Pandas', 'NumPy', 'SciPy', 'Matplotlib', 'Seaborn', 'Kaggle', 'Estatística'],
-    highlights: [
-      'Tratamento e exploração de mais de 4.300 missões históricas',
-      'Testes de hipótese estatística: Mann-Whitney U e Qui-Quadrado',
-      'Visualizações detalhadas de distribuição e correlação'
+    shortDescription: 'Investigação estatística em mais de 4.300 missões espaciais (1957–2020) com testes de hipóteses e visualizações em Python.',
+    fullDescription: 'Projeto de Data Science desenvolvido para investigar tendências históricas da exploração espacial utilizando um conjunto de dados contendo mais de 4.300 lançamentos realizados entre 1957 e 2020.\n\nForam aplicadas técnicas de limpeza, tratamento e análise estatística para identificar padrões, correlações e diferenças significativas entre grupos de dados. O projeto teve como foco transformar grandes volumes de informação em insights relevantes através de métodos estatísticos e visualizações gráficas.',
+    features: [
+      'Limpeza e preparação de dados.',
+      'Estatística descritiva.',
+      'Identificação de outliers.',
+      'Análise de correlação.',
+      'Testes de hipótese.',
+      'Intervalos de confiança.',
+      'Visualizações gráficas.'
+    ],
+    technologies: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Matplotlib',
+      'Seaborn',
+      'SciPy'
+    ],
+    learnings: [
+      'Data Cleaning.',
+      'Estatística aplicada.',
+      'Análise exploratória de dados.',
+      'Testes estatísticos.',
+      'Comunicação de resultados através de gráficos.'
+    ]
+  },
+  {
+    id: 'finance-app',
+    title: 'Sistema de Controle Financeiro Pessoal – Aplicação Web Full Stack',
+    category: 'web',
+    badge: 'Full Stack & Database',
+    image: '/projects/finance-app.jpg',
+    github: 'https://github.com/rafa212007',
+    shortDescription: 'Aplicação web completa para gestão de finanças pessoais com autenticação segura, banco Oracle e gráficos comparativos.',
+    fullDescription: 'Aplicação web completa desenvolvida para auxiliar usuários no gerenciamento de finanças pessoais. O sistema permite registrar receitas e despesas, acompanhar transações ao longo do tempo e visualizar indicadores financeiros por meio de gráficos e relatórios.\n\nO projeto foi construído utilizando arquitetura Full Stack, com autenticação segura de usuários, persistência de dados em banco Oracle e utilização de ORM para simplificar a comunicação entre a aplicação e o banco de dados.',
+    features: [
+      'Cadastro e autenticação de usuários.',
+      'Controle de receitas e despesas.',
+      'CRUD completo de transações.',
+      'Filtros por período.',
+      'Relatórios financeiros.',
+      'Dashboard com gráficos comparativos.',
+      'Isolamento seguro dos dados de cada usuário.'
+    ],
+    technologies: [
+      'Python',
+      'Flask',
+      'Oracle Database',
+      'SQLAlchemy',
+      'Flask-Login',
+      'Chart.js',
+      'HTML',
+      'CSS',
+      'JavaScript'
+    ],
+    learnings: [
+      'Desenvolvimento Full Stack.',
+      'Modelagem de banco de dados.',
+      'Segurança de aplicações web.',
+      'ORM com SQLAlchemy.',
+      'Integração backend e frontend.'
     ]
   },
   {
@@ -69,15 +148,29 @@ export const projectsData = [
     title: 'Desenvolvimento Front-end Responsivo & SPA',
     category: 'web',
     badge: 'Front-end & Componentes',
-    description: 'Construção de aplicações e interfaces web modernas, fluidas e acessíveis com React, Vite, Tailwind CSS e controle de versão profissional via Git/GitHub.',
-    longDescription: 'Desenvolvimento de interfaces ricas com foco em semântica, acessibilidade e performance. Utilização de React com Vite para compilação ultra veloz, arquitetura de componentes reutilizáveis, gerenciamento de estado e estilização rápida e responsiva com Tailwind CSS. Fluxo de trabalho padronizado com Git (branches, commits semânticos e resolução de conflitos).',
     image: '/projects/web-react.jpg',
     github: 'https://github.com/rafa212007',
-    tags: ['React', 'Vite', 'JavaScript ES6+', 'Tailwind CSS', 'HTML5 Semântico', 'Git/GitHub'],
-    highlights: [
-      'Design 100% responsivo para mobile, tablet e desktop',
-      'Componentização modular e boas práticas de código limpo',
-      'Fluxo de versionamento profissional no GitHub'
+    shortDescription: 'Criação de Single Page Applications responsivas, com arquitetura modular de componentes em React e Tailwind CSS.',
+    fullDescription: 'Desenvolvimento de interfaces modernas, fluidas e acessíveis utilizando React e Tailwind CSS. Foco em arquitetura escalável de componentes reutilizáveis, compilação veloz com Vite, controle rigoroso de versionamento Git e design responsivo adaptado para todos os dispositivos móveis e desktops.',
+    features: [
+      'Design 100% responsivo para mobile, tablet e desktop.',
+      'Componentização modular e desacoplada em React.',
+      'Estilização utilitária moderna com Tailwind CSS.',
+      'Controle de versão com branches, pull requests e boas práticas Git.'
+    ],
+    technologies: [
+      'React',
+      'Vite',
+      'JavaScript',
+      'Tailwind CSS',
+      'HTML5 Semântico',
+      'Git e GitHub'
+    ],
+    learnings: [
+      'Arquitetura de componentes reutilizáveis.',
+      'Desenvolvimento mobile-first.',
+      'Otimização de builds com Vite.',
+      'Boas práticas de código limpo e semântica.'
     ]
   }
 ];
