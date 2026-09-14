@@ -144,33 +144,38 @@ export const projectsData = [
     ]
   },
   {
-    id: 'web-react',
-    title: 'Desenvolvimento Front-end Responsivo & SPA',
+    id: 'conectapro',
+    title: 'ConectaPro – Rede Profissional para Networking',
     category: 'web',
-    badge: 'Front-end & Componentes',
-    image: '/projects/web-react.jpg',
-    github: 'https://github.com/rafa212007',
-    shortDescription: 'Criação de Single Page Applications responsivas, com arquitetura modular de componentes em React e Tailwind CSS.',
-    fullDescription: 'Desenvolvimento de interfaces modernas, fluidas e acessíveis utilizando React e Tailwind CSS. Foco em arquitetura escalável de componentes reutilizáveis, compilação veloz com Vite, controle rigoroso de versionamento Git e design responsivo adaptado para todos os dispositivos móveis e desktops.',
+    badge: 'Full Stack & Networking',
+    image: '/projects/conectapro.jpg',
+    github: 'https://github.com/Equipe-Dev-fiap/gs-web-front-2.git',
+    shortDescription: 'Plataforma web para conexões profissionais com perfis completos, mensagens, busca de talentos e recomendação com React, Node.js e Express.',
+    fullDescription: 'Desenvolvimento de uma plataforma web inspirada em redes profissionais, permitindo conexão entre usuários, criação e gerenciamento de perfis profissionais, compartilhamento de informações e interação por mensagens.\n\nImplementação de autenticação de usuários e gerenciamento completo de perfil com foto, experiências, formação, habilidades, idiomas, certificações e projetos no frontend com React, Vite e Tailwind CSS. Backend desenvolvido em Node.js e Express para gerenciamento de usuários, perfis e mensagens, incluindo busca, filtros e recomendação profissional com interface responsiva e suporte nativo a modo escuro.',
     features: [
-      'Design 100% responsivo para mobile, tablet e desktop.',
-      'Componentização modular e desacoplada em React.',
-      'Estilização utilitária moderna com Tailwind CSS.',
-      'Controle de versão com branches, pull requests e boas práticas Git.'
+      'Autenticação de usuários e proteção de rotas.',
+      'Gerenciamento de perfil completo (foto, experiências, formação, habilidades, idiomas e certificações).',
+      'Backend com Node.js e Express para usuários, perfis e mensagens.',
+      'Sistema de busca, filtros e recomendação de perfis profissionais.',
+      'Compartilhamento de informações e interação por mensagens.',
+      'Interface responsiva com suporte a modo escuro e boas práticas de UX.'
     ],
     technologies: [
       'React',
       'Vite',
       'JavaScript',
       'Tailwind CSS',
-      'HTML5 Semântico',
+      'Node.js',
+      'Express',
+      'REST API',
       'Git e GitHub'
     ],
     learnings: [
-      'Arquitetura de componentes reutilizáveis.',
-      'Desenvolvimento mobile-first.',
-      'Otimização de builds com Vite.',
-      'Boas práticas de código limpo e semântica.'
+      'Desenvolvimento Full Stack (React + Node.js/Express).',
+      'Estruturação de perfis e relacionamentos de dados complexos.',
+      'Implementação de filtros dinâmicos e sistemas de busca.',
+      'Trabalho colaborativo e integração em equipe via Git/GitHub.',
+      'Boas práticas de organização de componentes, rotas e Dark Mode.'
     ]
   }
 ];
