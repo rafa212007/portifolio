@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Linkedin, Github, Copy, Check, Coffee, Heart, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Linkedin, Github, Copy, Check } from 'lucide-react';
 import { triggerNeonConfetti } from '../utils/confetti';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const [coffees, setCoffees] = useState(3);
-  const [coffeeCheer, setCoffeeCheer] = useState(false);
-
   const email = 'rafael.au.carmona@gmail.com';
   const phone = '(11) 97651-6471';
 
@@ -15,13 +12,6 @@ export default function Contact() {
     setCopied(true);
     triggerNeonConfetti(e.clientX, e.clientY);
     setTimeout(() => setCopied(false), 3000);
-  };
-
-  const handleCoffeeClick = (e) => {
-    setCoffees((prev) => prev + 1);
-    setCoffeeCheer(true);
-    triggerNeonConfetti(e.clientX, e.clientY);
-    setTimeout(() => setCoffeeCheer(false), 2000);
   };
 
   return (
@@ -137,25 +127,6 @@ export default function Contact() {
             </div>
           </a>
 
-        </div>
-
-        {/* Easter Egg: Cafézinho Virtual interativo */}
-        <div className="mt-10 max-w-sm mx-auto text-center">
-          <button
-            onClick={handleCoffeeClick}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 text-xs font-mono text-slate-300 transition-all hover:scale-105 active:scale-95 group shadow-sm"
-          >
-            <Coffee size={15} className="text-amber-400 group-hover:rotate-12 transition-transform" />
-            <span>Pagar um cafézinho virtual ☕</span>
-            <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold">
-              {coffees}
-            </span>
-          </button>
-          {coffeeCheer && (
-            <p className="text-[11px] text-amber-400 font-mono mt-2 animate-bounce flex items-center justify-center gap-1">
-              <Sparkles size={12} /> Café quentinho entregue! Valeu pelo apoio! 🚀
-            </p>
-          )}
         </div>
 
         {/* Floating Toast Notification */}
