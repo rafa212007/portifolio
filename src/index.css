@@ -40,3 +40,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #06b6d4;
 }
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4.5s ease-in-out infinite;
+}
