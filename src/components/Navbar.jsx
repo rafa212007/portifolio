@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, ExternalLink, Moon, Sun } from 'lucide-react';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
-export default function Navbar({ isDark, setIsDark }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, setLanguage, theme, setTheme, translate } = useSitePreferences();
+  const nav = translate('nav');
+  const controls = translate('controls');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +18,11 @@ export default function Navbar({ isDark, setIsDark }) {
   }, []);
 
   const navLinks = [
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Habilidades', href: '#habilidades' },
-    { name: 'Projetos', href: '#projetos' },
-    { name: 'Formação', href: '#formacao' },
-    { name: 'Contato', href: '#contato' },
+    { name: nav.about, href: '#sobre' },
+    { name: nav.skills, href: '#habilidades' },
+    { name: nav.projects, href: '#projetos' },
+    { name: nav.education, href: '#formacao' },
+    { name: nav.contact, href: '#contato' },
   ];
 
   return (
@@ -35,6 +39,7 @@ export default function Navbar({ isDark, setIsDark }) {
             <img
               src="/profile.jpg"
               alt="Rafael Carmona"
+              decoding="async"
               className="w-full h-full object-cover object-[center_20%] rounded-full"
             />
             <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950 shadow-sm" title="Disponível"></span>
@@ -62,6 +67,29 @@ export default function Navbar({ isDark, setIsDark }) {
 
         {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <label className="sr-only" htmlFor="language-select">{controls.language}</label>
+            <select
+              id="language-select"
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              className="bg-slate-900/80 border border-slate-700 text-slate-200 text-xs rounded-lg px-2 py-2 outline-none focus:border-cyan-400"
+              aria-label={controls.language}
+            >
+              <option value="pt">PT</option>
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+            <button
+              type="button"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition-colors"
+              title={theme === 'dark' ? controls.light : controls.dark}
+              aria-label={theme === 'dark' ? controls.light : controls.dark}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
           <a
             href="https://github.com/rafa212007"
             target="_blank"
@@ -85,7 +113,7 @@ export default function Navbar({ isDark, setIsDark }) {
             href="#contato"
             className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-lg transition-all shadow-md shadow-cyan-500/20 hover:scale-[1.02]"
           >
-            Falar Comigo
+            {nav.talk}
           </a>
         </div>
 
@@ -94,7 +122,7 @@ export default function Navbar({ isDark, setIsDark }) {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800"
-            aria-label="Abrir menu"
+            aria-label={isOpen ? controls.closeMenu : controls.openMenu}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -123,12 +151,35 @@ export default function Navbar({ isDark, setIsDark }) {
                 <Linkedin size={22} />
               </a>
             </div>
+            <div className="flex items-center gap-2">
+              <label className="sr-only" htmlFor="mobile-language-select">{controls.language}</label>
+              <select
+                id="mobile-language-select"
+                value={language}
+                onChange={(event) => setLanguage(event.target.value)}
+                className="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2 py-2"
+                aria-label={controls.language}
+              >
+                <option value="pt">PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+              </select>
+              <button
+                type="button"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 text-slate-300 hover:text-cyan-400 rounded-lg"
+                title={theme === 'dark' ? controls.light : controls.dark}
+                aria-label={theme === 'dark' ? controls.light : controls.dark}
+              >
+                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            </div>
             <a
               href="#contato"
               onClick={() => setIsOpen(false)}
               className="px-4 py-2 text-xs font-semibold text-slate-950 bg-cyan-400 rounded-lg"
             >
-              Falar Comigo
+              {nav.talk}
             </a>
           </div>
         </div>

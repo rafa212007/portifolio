@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Linkedin, Github, Copy, Check } from 'lucide-react';
 import { triggerNeonConfetti } from '../utils/confetti';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function Contact() {
+  const { translate } = useSitePreferences();
+  const contact = translate('contact');
   const [copied, setCopied] = useState(false);
   const email = 'rafael.au.carmona@gmail.com';
   const phone = '(11) 97651-6471';
@@ -24,13 +27,13 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
-            Vamos Conversar
+            {contact.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
-            Entre em Contato Comigo
+            {contact.title}
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-4">
-            Estou em busca de oportunidades de estágio e projetos desafiadores. Fique à vontade para me enviar uma mensagem!
+            {contact.description}
           </p>
         </div>
 
@@ -53,7 +56,7 @@ export default function Contact() {
                 {phone}
               </h3>
               <p className="text-xs text-slate-400 mt-1">
-                Clique para iniciar uma conversa direta no WhatsApp
+                {contact.whatsapp}
               </p>
             </div>
           </a>
@@ -75,7 +78,7 @@ export default function Contact() {
                 rafael-augusto-carmona
               </h3>
               <p className="text-xs text-slate-400 mt-1">
-                Conecte-se comigo e acompanhe minhas publicações
+                {contact.linkedin}
               </p>
             </div>
           </a>
@@ -87,12 +90,12 @@ export default function Contact() {
                 <Mail size={24} />
               </div>
               <div>
-                <span className="text-xs font-mono text-blue-400 uppercase tracking-wider">E-mail Profissional</span>
+                <span className="text-xs font-mono text-blue-400 uppercase tracking-wider">{contact.email}</span>
                 <h3 className="text-base sm:text-lg font-bold text-white break-all">
                   {email}
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
-                  Respondo prontamente para propostas e contato
+                  {contact.emailDesc}
                 </p>
               </div>
             </div>
@@ -100,7 +103,7 @@ export default function Contact() {
             <button
               onClick={copyEmail}
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all shrink-0 hover:scale-110 active:scale-90"
-              title="Copiar E-mail"
+              title={contact.copy}
             >
               {copied ? <Check size={18} className="text-emerald-400 animate-bounce" /> : <Copy size={18} />}
             </button>
@@ -122,7 +125,7 @@ export default function Contact() {
                 github.com/rafa212007
               </h3>
               <p className="text-xs text-slate-400 mt-1">
-                Acesse todos os meus repositórios e commits de projetos
+                {contact.github}
               </p>
             </div>
           </a>
@@ -133,7 +136,7 @@ export default function Contact() {
         {copied && (
           <div className="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm shadow-2xl flex items-center gap-2 animate-bounce">
             <Check size={18} />
-            E-mail copiado com sucesso! 🎉
+            {contact.copied}
           </div>
         )}
 

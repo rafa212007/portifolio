@@ -1,6 +1,7 @@
 import React from 'react';
 import { skillsData } from '../data/skillsData';
 import { Layout, Server, BarChart3, Cpu } from 'lucide-react';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
 const iconMap = {
   Layout: Layout,
@@ -10,6 +11,8 @@ const iconMap = {
 };
 
 export default function Skills() {
+  const { translate } = useSitePreferences();
+  const skills = translate('skills');
   return (
     <section id="habilidades" className="py-20 relative bg-slate-900/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,13 +20,13 @@ export default function Skills() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
-            Stack & Habilidades
+            {skills.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
-            Tecnologias e Ferramentas que Domino
+            {skills.title}
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-4">
-            Conjunto de linguagens, bibliotecas e plataformas aplicadas em projetos acadêmicos e práticos.
+            {skills.description}
           </p>
         </div>
 

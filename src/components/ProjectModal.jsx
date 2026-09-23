@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { X, ExternalLink, Github, CheckCircle2, Sparkles, Layers, Award } from 'lucide-react';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function ProjectModal({ project, onClose }) {
+  const { translate } = useSitePreferences();
+  const modal = translate('modal');
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -32,6 +35,7 @@ export default function ProjectModal({ project, onClose }) {
           <img 
             src={project.image} 
             alt={project.title}
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
@@ -67,7 +71,7 @@ export default function ProjectModal({ project, onClose }) {
           <div>
             <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold mb-2 flex items-center gap-2">
               <Layers size={16} />
-              Descrição do Projeto
+              {modal.description}
             </h3>
             <div className="text-slate-300 text-sm sm:text-base leading-relaxed space-y-3 whitespace-pre-line bg-slate-950/50 p-4 sm:p-5 rounded-2xl border border-slate-800/80">
               {project.fullDescription}
@@ -79,7 +83,7 @@ export default function ProjectModal({ project, onClose }) {
             <div>
               <h3 className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-3 flex items-center gap-2">
                 <CheckCircle2 size={16} />
-                Principais Funcionalidades
+                {modal.features}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {project.features.map((feat, idx) => (
@@ -100,7 +104,7 @@ export default function ProjectModal({ project, onClose }) {
             <div>
               <h3 className="text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold mb-3 flex items-center gap-2">
                 <Sparkles size={16} />
-                Tecnologias Utilizadas
+                {modal.technologies}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
@@ -120,7 +124,7 @@ export default function ProjectModal({ project, onClose }) {
             <div>
               <h3 className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold mb-3 flex items-center gap-2">
                 <Award size={16} />
-                Aprendizados e Competências
+                {modal.learnings}
               </h3>
               <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-1.5">
                 {project.learnings.map((learning, idx) => (
@@ -142,7 +146,7 @@ export default function ProjectModal({ project, onClose }) {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 transition-all shadow-md shadow-cyan-500/20"
             >
               <Github size={18} />
-              Acessar Repositório no GitHub
+              {modal.repository}
               <ExternalLink size={14} />
             </a>
 
@@ -150,7 +154,7 @@ export default function ProjectModal({ project, onClose }) {
               onClick={onClose}
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
             >
-              Fechar
+              {modal.close}
             </button>
           </div>
 

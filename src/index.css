@@ -5,8 +5,10 @@
 @layer base {
   body {
     @apply bg-slate-950 text-slate-100;
+    overflow-x: clip;
   }
 }
+
 
 .glow-cyan {
   box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.25);
@@ -53,4 +55,113 @@
 
 .animate-float {
   animation: float 4.5s ease-in-out infinite;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.6rem;
+  background: #06b6d4;
+  color: #082f49;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+[data-gallery-card]:focus-visible {
+  outline-offset: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Light theme overrides the dark utility palette while preserving the layout. */
+body.light-theme {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.light-theme .bg-slate-950,
+.light-theme [class*="bg-slate-950/"] {
+  background-color: #f8fafc !important;
+}
+
+.light-theme .bg-slate-900,
+.light-theme [class*="bg-slate-900/"] {
+  background-color: #ffffff !important;
+}
+
+.light-theme .bg-slate-800,
+.light-theme [class*="bg-slate-800/"] {
+  background-color: #e2e8f0 !important;
+}
+
+.light-theme .from-slate-900 {
+  --tw-gradient-from: #ffffff var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position) !important;
+}
+
+.light-theme .to-slate-950 {
+  --tw-gradient-to: #f8fafc var(--tw-gradient-to-position) !important;
+}
+
+.light-theme .about-highlight {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .about-highlight span {
+  color: #334155 !important;
+}
+
+.light-theme [class*="text-white"] {
+  color: #0f172a !important;
+}
+
+.light-theme .project-card-title {
+  color: #ffffff !important;
+}
+
+.light-theme [class*="text-slate-100"],
+.light-theme [class*="text-slate-200"],
+.light-theme [class*="text-slate-300"] {
+  color: #334155 !important;
+}
+
+.light-theme [class*="text-slate-400"],
+.light-theme [class*="text-slate-500"] {
+  color: #64748b !important;
+}
+
+.light-theme [class*="text-slate-600"] {
+  color: #94a3b8 !important;
+}
+
+.light-theme [class*="border-slate-700"],
+.light-theme [class*="border-slate-800"] {
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .shadow-black\/20 {
+  --tw-shadow-color: rgba(15, 23, 42, 0.12) !important;
 }

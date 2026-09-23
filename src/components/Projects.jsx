@@ -2,20 +2,24 @@ import React, { useState } from 'react';
 import { projectsData } from '../data/projectsData';
 import { ExternalLink, Github, Eye, Sparkles } from 'lucide-react';
 import ProjectModal from './ProjectModal';
+import { useSitePreferences } from '../contexts/SitePreferences';
+import { getLocalizedProject } from '../data/projectTranslations';
 
 export default function Projects() {
+  const { language, translate } = useSitePreferences();
+  const projects = translate('projects');
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const filteredProjects = activeFilter === 'all'
-    ? projectsData
-    : projectsData.filter(p => p.category === activeFilter);
+  const filteredProjects = projectsData
+    .filter((project) => activeFilter === 'all' || project.category === activeFilter)
+    .map((project) => getLocalizedProject(project, language));
 
   const filters = [
-    { label: 'Todos', value: 'all', count: projectsData.length },
-    { label: 'Web & Full Stack', value: 'web', count: projectsData.filter(p => p.category === 'web').length },
-    { label: 'Data Science', value: 'data', count: projectsData.filter(p => p.category === 'data').length },
-    { label: 'IoT & Edge', value: 'iot', count: projectsData.filter(p => p.category === 'iot').length },
+    { label: projects.all, value: 'all', count: projectsData.length },
+    { label: projects.web, value: 'web', count: projectsData.filter(p => p.category === 'web').length },
+    { label: projects.data, value: 'data', count: projectsData.filter(p => p.category === 'data').length },
+    { label: projects.iot, value: 'iot', count: projectsData.filter(p => p.category === 'iot').length },
   ];
 
   return (
@@ -25,13 +29,13 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-3 py-1 rounded-full">
-            Portfólio em Ação
+            {projects.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
-            Projetos em Destaque
+            {projects.title}
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-4">
-            Clique em qualquer projeto para ver a <strong className="text-slate-200">descrição detalhada</strong>, funcionalidades e tecnologias utilizadas.
+            {projects.description}
           </p>
         </div>
 
@@ -63,6 +67,15 @@ export default function Projects() {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`${projects.details}: ${project.title}`}
               className="rounded-3xl bg-slate-900/80 border border-slate-800/90 overflow-hidden hover:border-cyan-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-950/20 flex flex-col group cursor-pointer"
             >
               {/* Image Banner */}
@@ -70,6 +83,8 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
@@ -84,7 +99,7 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 text-cyan-300 text-xs font-medium border border-cyan-500/30 shadow-lg backdrop-blur-sm">
                     <Eye size={16} />
-                    Clique para ver detalhes
+                    {projects.clickDetails}
                   </span>
                 </div>
               </div>
@@ -128,7 +143,7 @@ export default function Projects() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
                   >
                     <Eye size={15} />
-                    Ver Detalhes
+                    {projects.details}
                   </button>
 
                   <a
@@ -139,7 +154,7 @@ export default function Projects() {
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
                   >
                     <Github size={14} />
-                    Repositório
+                    {projects.repository}
                     <ExternalLink size={12} className="text-slate-400" />
                   </a>
                 </div>

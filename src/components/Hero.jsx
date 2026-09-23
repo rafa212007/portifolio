@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Github, Linkedin, Mail, MessageSquare, Sparkles, Terminal, Code2, Coffee } from 'lucide-react';
 import ParticleCanvas from './ParticleCanvas';
 import { triggerNeonConfetti } from '../utils/confetti';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function Hero() {
+  const { language, translate } = useSitePreferences();
+  const hero = translate('hero');
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -11,19 +14,19 @@ export default function Hero() {
   const [greeting, setGreeting] = useState('');
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) setGreeting('Bom dia ☀️');
-    else if (hour >= 12 && hour < 18) setGreeting('Boa tarde 🌤️');
-    else setGreeting('Boa noite 🌙');
-  }, []);
+    const greetings = {
+      pt: ['Bom dia', 'Boa tarde', 'Boa noite'],
+      en: ['Good morning', 'Good afternoon', 'Good evening'],
+      es: ['Buenos dias', 'Buenas tardes', 'Buenas noches'],
+    };
+    const labels = greetings[language] || greetings.pt;
+    if (hour >= 5 && hour < 12) setGreeting(`${labels[0]} ☀️`);
+    else if (hour >= 12 && hour < 18) setGreeting(`${labels[1]} 🌤️`);
+    else setGreeting(`${labels[2]} 🌙`);
+  }, [language]);
 
   // 2. Typewriter Effect Hook
-  const phrases = [
-    'Desenvolvedor Full Stack',
-    'Estudante de Eng. de Software @ FIAP',
-    'Python & Data Science',
-    'IoT & Edge Computing (ESP32/FIWARE)',
-    'Criador do Passa a Bola & ConectaPro',
-  ];
+  const phrases = hero.phrases;
 
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -78,12 +81,12 @@ export default function Hero() {
               </span>
               <span className="font-semibold text-cyan-400">{greeting}</span>
               <span className="text-slate-600">|</span>
-              <span>Disponível para Estágio & Oportunidades</span>
+              <span>{hero.available}</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Olá, sou o <br className="hidden sm:inline" />
+              {hero.hello} <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
                 Rafael Augusto Carmona
               </span>
@@ -99,7 +102,7 @@ export default function Hero() {
             </div>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0 pt-1">
-              Estudante de <strong className="text-white">Engenharia de Software na FIAP</strong>. Crio sistemas modernos e eficientes unindo desenvolvimento web full stack, análise de dados rigorosa e IoT na borda.
+              {hero.description}
             </p>
 
             {/* Quick Tech Badges */}
@@ -120,7 +123,7 @@ export default function Hero() {
                 href="#projetos"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 transition-all shadow-lg shadow-cyan-500/25 hover:scale-[1.03] active:scale-95"
               >
-                Explorar Projetos
+                {hero.explore}
                 <ArrowRight size={18} />
               </a>
               <a
@@ -131,13 +134,13 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 bg-slate-900 border border-slate-700 hover:border-emerald-500/60 hover:bg-slate-800 transition-all hover:scale-[1.03] active:scale-95 group"
               >
                 <MessageSquare size={18} className="text-emerald-400 group-hover:animate-bounce" />
-                Conversar no WhatsApp
+                {hero.whatsapp}
               </a>
             </div>
 
             {/* Social Links Bar */}
             <div className="flex items-center gap-5 justify-center lg:justify-start pt-2 text-slate-400">
-              <span className="text-xs uppercase tracking-wider font-mono text-slate-500">Conecte-se:</span>
+              <span className="text-xs uppercase tracking-wider font-mono text-slate-500">{hero.connect}</span>
               <a
                 href="https://www.linkedin.com/in/rafael-augusto-carmona-287230361"
                 target="_blank"
@@ -177,7 +180,7 @@ export default function Hero() {
               {/* Floating Gracinha Badge: Top Right */}
               <div className="absolute -top-4 -right-4 z-20 px-3 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-[11px] font-mono font-semibold text-cyan-300 shadow-xl flex items-center gap-1.5 backdrop-blur-md animate-bounce">
                 <Sparkles size={13} className="text-yellow-400" />
-                <span>Open for work</span>
+                <span>{hero.openWork}</span>
               </div>
 
               {/* Card Container */}
@@ -189,6 +192,8 @@ export default function Hero() {
                   <img
                     src="/profile.jpg"
                     alt="Rafael Augusto Carmona"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
                   />
 
@@ -205,7 +210,7 @@ export default function Hero() {
 
                 {/* Card Sub-info */}
                 <div className="mt-3 px-2 flex items-center justify-between text-xs text-slate-400">
-                  <span>São Paulo, SP</span>
+                  <span>{hero.location}</span>
                   <span className="font-mono text-cyan-400">rafael.au.carmona@gmail.com</span>
                 </div>
 

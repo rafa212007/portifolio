@@ -1,7 +1,11 @@
 import React from 'react';
-import { GraduationCap, Code2, Database, Cpu, Globe, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Code2, Database, Cpu, Globe, CheckCircle2, Download } from 'lucide-react';
+import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function About() {
+  const { translate } = useSitePreferences();
+  const about = translate('about');
+  const resume = translate('resume');
   const pillars = [
     {
       icon: GraduationCap,
@@ -40,14 +44,26 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-3 py-1 rounded-full">
-            Sobre Mim
+            {about.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
-            Engenharia de Software com Rigor Técnico e Inovação
+            {about.title}
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
-            Sou estudante de Engenharia de Software focado em criar soluções que unem a flexibilidade do desenvolvimento web moderno, a precisão analítica da ciência de dados e a eficiência da computação na borda.
+            {about.description}
           </p>
+        </div>
+
+        <div className="mb-10 flex justify-center">
+          <a
+            href="/curriculo.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-400 text-slate-950 font-bold text-sm hover:bg-cyan-300 transition-colors print:hidden"
+          >
+            <Download size={18} />
+            {resume.download}
+          </a>
         </div>
 
         {/* Pillars Grid */}
@@ -65,10 +81,10 @@ export default function About() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {pillar.title}
+                      {about.pillars[idx][0]}
                     </h3>
                     <p className="text-slate-300 mt-2 text-sm sm:text-base leading-relaxed">
-                      {pillar.desc}
+                      {about.pillars[idx][1]}
                     </p>
                   </div>
                 </div>
@@ -78,18 +94,18 @@ export default function About() {
         </div>
 
         {/* Highlight strip */}
-        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900 border border-slate-800 flex flex-wrap items-center justify-around gap-6 text-center sm:text-left">
+        <div className="about-highlight mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900 border border-slate-800 flex flex-wrap items-center justify-around gap-6 text-center sm:text-left">
           <div className="flex items-center gap-3">
             <CheckCircle2 className="text-emerald-400" size={20} />
-            <span className="text-sm text-slate-300 font-medium">Controle de Versão com Git & GitHub</span>
+            <span className="text-sm text-slate-300 font-medium">{about.highlights[0]}</span>
           </div>
           <div className="flex items-center gap-3">
             <CheckCircle2 className="text-cyan-400" size={20} />
-            <span className="text-sm text-slate-300 font-medium">Testes Estatísticos de Hipótese (SciPy)</span>
+            <span className="text-sm text-slate-300 font-medium">{about.highlights[1]}</span>
           </div>
           <div className="flex items-center gap-3">
             <CheckCircle2 className="text-teal-400" size={20} />
-            <span className="text-sm text-slate-300 font-medium">Inglês Intermediário para Documentação</span>
+            <span className="text-sm text-slate-300 font-medium">{about.highlights[2]}</span>
           </div>
         </div>
 
