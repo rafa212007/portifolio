@@ -6,6 +6,7 @@ import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function Hero() {
   const { language, translate } = useSitePreferences();
+  const [parallaxY, setParallaxY] = useState(0);
   const hero = translate('hero');
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -58,6 +59,13 @@ export default function Hero() {
     triggerNeonConfetti(e.clientX, e.clientY);
   };
 
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const updateParallax = () => setParallaxY(Math.min(window.scrollY * 0.12, 90));
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    return () => window.removeEventListener('scroll', updateParallax);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Interactive Constellation Particles */}
@@ -67,7 +75,7 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow" />
       <div className="absolute top-1/3 right-10 w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ transform: `translateY(${parallaxY}px)` }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Intro & Headline */}

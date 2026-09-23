@@ -5,9 +5,17 @@ import { useSitePreferences } from '../contexts/SitePreferences';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('sobre');
   const { language, setLanguage, theme, setTheme, translate } = useSitePreferences();
   const nav = translate('nav');
   const controls = translate('controls');
+  const navLinks = [
+    { name: nav.about, href: '#sobre' },
+    { name: nav.skills, href: '#habilidades' },
+    { name: nav.projects, href: '#projetos' },
+    { name: nav.education, href: '#formacao' },
+    { name: nav.contact, href: '#contato' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,13 +25,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: nav.about, href: '#sobre' },
-    { name: nav.skills, href: '#habilidades' },
-    { name: nav.projects, href: '#projetos' },
-    { name: nav.education, href: '#formacao' },
-    { name: nav.contact, href: '#contato' },
-  ];
+  useEffect(() => {
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
+      }),
+      { rootMargin: '-35% 0px -55% 0px' }
+    );
+    sections.filter(Boolean).forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [language]);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -58,7 +70,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-cyan-400 after:absolute after:bottom-0 after:left-0 after:transition-all"
+              className={`text-sm font-medium transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-cyan-400 after:transition-all ${activeSection === link.href ? 'text-cyan-400 after:w-full' : 'text-slate-300 hover:text-cyan-400 hover:after:w-full after:w-0'}`}
             >
               {link.name}
             </a>

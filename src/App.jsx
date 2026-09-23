@@ -102,7 +102,22 @@ function GalleryPanel({ scrollProgressRef }) {
 function AppContent() {
   const wrapperRef = useCurtainScroll();
   const galleryProgressRef = useRef(null);
-  const { theme } = useSitePreferences();
+  const { theme, language } = useSitePreferences();
+  const [scrollPercent, setScrollPercent] = useState(0);
+
+  useLayoutEffect(() => {
+    const updateProgress = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollPercent(height > 0 ? (window.scrollY / height) * 100 : 0);
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+    };
+  }, []);
 
   // Wire up the gallery ScrollTrigger's onUpdate to drive gallery rotation
   useLayoutEffect(() => {
@@ -142,9 +157,11 @@ function AppContent() {
   return (
     <div
       ref={wrapperRef}
-      className={`bg-slate-950 text-slate-100 font-sans ${theme === 'light' ? 'light-theme' : ''}`}
+      data-language={language}
+      className={`bg-slate-950 text-slate-100 font-sans language-transition ${theme === 'light' ? 'light-theme' : ''}`}
       style={{ overflowX: 'clip' }}
     >
+      <div className="reading-progress" style={{ width: `${scrollPercent}%` }} aria-hidden="true" />
       <Navbar />
 
       <a className="skip-link" href="#main-content">Pular para o conteúdo</a>

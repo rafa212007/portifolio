@@ -63,7 +63,7 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
@@ -76,7 +76,8 @@ export default function Projects() {
               role="button"
               tabIndex={0}
               aria-label={`${projects.details}: ${project.title}`}
-              className="rounded-3xl bg-slate-900/80 border border-slate-800/90 overflow-hidden hover:border-cyan-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-950/20 flex flex-col group cursor-pointer"
+              style={{ '--card-delay': `${index * 90}ms` }}
+              className="project-card rounded-3xl bg-slate-900/80 border border-slate-800/90 overflow-hidden hover:border-cyan-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-950/20 flex flex-col group cursor-pointer"
             >
               {/* Image Banner */}
               <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-slate-950 border-b border-slate-800/80">

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GraduationCap, Award, BookOpen, Languages } from 'lucide-react';
 import { useSitePreferences } from '../contexts/SitePreferences';
 
 export default function Education() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
   const { language, translate } = useSitePreferences();
   const education = translate('education');
   const timelineByLanguage = {
@@ -30,8 +32,22 @@ export default function Education() {
     badge: index === 0 ? education.degree : education.certificate,
     color: ['border-cyan-500/30 text-cyan-400', 'border-emerald-500/30 text-emerald-400', 'border-purple-500/30 text-purple-400'][index],
   }));
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsVisible(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.15 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section id="formacao" className="py-20 relative bg-slate-900/40">
+    <section ref={sectionRef} id="formacao" className={`py-20 relative bg-slate-900/40 ${isVisible ? 'timeline-visible' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -48,12 +64,14 @@ export default function Education() {
         </div>
 
         {/* Timeline Grid */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="timeline-list max-w-4xl mx-auto space-y-6">
           {timeline.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+              style={{ '--timeline-delay': `${idx * 120}ms` }}
+              className="timeline-item p-6 sm:p-7 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4"
             >
+              <span className="timeline-dot" aria-hidden="true" />
               <div className="space-y-1 sm:max-w-2xl">
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-mono text-cyan-400 font-semibold">{item.institution}</span>
@@ -73,7 +91,8 @@ export default function Education() {
           ))}
 
           {/* Languages card */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-between">
+          <div className="timeline-item p-6 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-between" style={{ '--timeline-delay': `${timeline.length * 120}ms` }}>
+            <span className="timeline-dot" aria-hidden="true" />
             <div className="flex items-center gap-3">
               <Languages size={22} className="text-cyan-400" />
               <div>
